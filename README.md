@@ -1,7 +1,7 @@
 MailChimp API v3 for signing people up to a mailing list
 =======================================
 
-Version: v1.0.0
+Version: v1.0.1
 
 This library provides a simple MailChimp API v3 to signup people to a mailing list.
 

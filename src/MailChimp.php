@@ -5,7 +5,7 @@ namespace Truecast;
  * MailChimp
  *
  * @author Daniel Baldwin
- * @version 1.0.0
+ * @version 1.0.1
  * @copyright 2020 Truecast Design Studio
  */
 class MailChimp
@@ -17,13 +17,32 @@ class MailChimp
 	 * @param 
 	 * @author Daniel Baldwin
 	 */
-	public function __construct($apiKey)
+	public function __construct(string $apiKey)
 	{		
+		if (empty($apiKey)) {
+			throw new \Exception("API key is missing!");
+		}
 		$this->apiKey = $apiKey;
 	}
 		
-	public function add($member, $listId, $status)
+	public function add(array $member, string $listId, string $status): bool
 	{ 
+		if (empty($member['email'])) {
+			throw new \Exception("Email address is missing!");
+		}
+
+		if (empty($member['first_name'])) {
+			throw new \Exception("First name is missing!");
+		}
+
+		if (empty($listId)) {
+			throw new \Exception("List id is missing!");
+		}
+
+		if (empty($status)) {
+			throw new \Exception("Status is missing!");
+		}
+		
 		$memberId = md5(strtolower($member['email']));
 
 		$dataCenter = substr($this->apiKey, strpos($this->apiKey,'-')+1);
@@ -54,6 +73,6 @@ class MailChimp
 			return true;
 		}
 
-		throw new \Exception($result);		
+		throw new \Exception($result.' Code:'.$httpCode);		
 	}	
 }
