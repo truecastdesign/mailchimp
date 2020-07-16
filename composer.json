@@ -1,8 +1,8 @@
 {
-  "name": "truecastdesign/hopper",
+  "name": "truecastdesign/mailchimp",
   "type" : "library",
-  "description": "This library provides a simple and powerful way to SET and GET records from a PDO database.",
-  "keywords": ["slim","framework","php","dbpdo","layer","database","db","abstraction","layer","dbal"],
+  "description": "This library provides a simple MailChimp API v3 to signup people to a mailing list.",
+  "keywords": ["mailchimp","api","mailing","list"],
   "license": "MIT",
 
   "authors": [
@@ -12,7 +12,7 @@
   }
   ],
   "require": {
-  "php": ">=5.5.0"
+  "php": ">=7.1.0"
   },
   "autoload": {
     "psr-4": {
